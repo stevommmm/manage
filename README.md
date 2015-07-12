@@ -1,4 +1,4 @@
-# Shared #
+# Manage.py #
 
 Python snippets to manage server plugins.
 
@@ -8,8 +8,8 @@ On run plugins are sorted into `plugins/<pluginName>/<version>/<pluginName>.jar`
 
 ## to-do ##
 
-Sort command, no-delete option
-Symlink command, linking to plugin directory, takes server root as arg
+- Sort command, no-delete option
+- Symlink command, linking to plugin directory, takes server root as arg
 
 
 ## Example usage ##
