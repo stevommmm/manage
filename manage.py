@@ -28,13 +28,11 @@ UNSORTED = os.path.join(ROOT, 'unsorted')
 PLUGINS = os.path.join(ROOT, 'plugins')
 
 def _confirmwrite(jarloc):
-	print "Please confirm overwrite file with different hash at location: ", jarloc
+	print("Please confirm overwrite file with different hash at location: %s" % jarloc)
 	while True:
 		n = raw_input('Overwrite file? [y/n] ')
 		if n in ['y', 'n']:
 			return n == 'y'
-
-
 
 def _safejoin(*args):
 	"""Ensure we're not open to directory traversal"""
@@ -73,8 +71,8 @@ def get_plugin_info(pluginyaml):
 	return map(str, [pluginyaml['name'], pluginyaml['version']])
 
 def move_version(pluginname, version, filename):
-	"""Move an unsorted jar to it's final location, ensure
-	that we have created all the directories in the path
+	"""Move an unsorted jar to its final location, ensure that we
+	   have created all the directories in the path
 	"""
 	_makedir(PLUGINS, pluginname)
 	_makedir(PLUGINS, pluginname, version.replace(os.sep, '_'))
@@ -91,6 +89,7 @@ def move_version(pluginname, version, filename):
 	os.remove(_safejoin(UNSORTED, filename))
 
 def sort_main(args):
+	"""Handler for the sort command"""
 	if not args['--folder'] is None:
 		global UNSORTED
 		UNSORTED = os.path.join(ROOT, args['--folder'])
