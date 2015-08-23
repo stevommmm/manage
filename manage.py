@@ -135,14 +135,14 @@ class pluginSorter(object):
 		"""
 		return Plugin(_safejoin(self.unsorted_dir, filepath))
 
-	def confirmwrite(jarloc):
+	def confirmwrite(self, jarloc):
 		print("Please confirm overwrite file with different hash at location: %s" % jarloc)
 		while True:
 			n = raw_input('Overwrite file? [y/n] ')
 			if n.lower() in ['y', 'n']:
 				return n.lower() == 'y'
 
-	def comparefiles(unsortedjar, newjar):
+	def comparefiles(self, unsortedjar, newjar):
 		"""Compare two files using their hash, low chance of md5 collision"""
 		with open(unsortedjar, 'r') as a, open(newjar, 'r') as b:
 			return hashlib.md5(a.read()).hexdigest() == hashlib.md5(b.read()).hexdigest()
